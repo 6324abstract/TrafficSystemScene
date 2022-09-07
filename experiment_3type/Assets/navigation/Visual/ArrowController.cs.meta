@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 2262f74c317590e40a3d6662042cb57a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Mycar: {instanceID: 0}
+  - wp: {instanceID: 0}
+  - visualguide: {instanceID: 0}
+  - audioguide: {instanceID: 0}
+  - MyCar: {instanceID: 0}
+  - spriteRenderer: {instanceID: 0}
+  - Left: {fileID: 21300000, guid: 57b788ecba567fb488cc773672cf4001, type: 3}
+  - Right: {fileID: 21300000, guid: 3e940fbd7b37fb541aaf771e6060ee5d, type: 3}
+  - Straight: {fileID: 21300000, guid: 46aef506f95b1bc49a44f43926f0f0aa, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
