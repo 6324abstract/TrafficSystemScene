@@ -127,6 +127,7 @@
     <Compile Include="Assets\GleyPlugins\TrafficSystem\Scripts\Core\Traffic\Intersection\IntersectionStopWaypoints.cs" />
     <Compile Include="Assets\GleyPlugins\TrafficSystem\Scripts\Core\Traffic\ScriptableObjects\LayerSetup.cs" />
     <Compile Include="Assets\Car_interior\todolist.cs" />
+    <Compile Include="Assets\todolist.cs" />
     <Compile Include="Assets\Hazards\test.cs" />
     <Compile Include="Assets\GleyPlugins\TrafficSystem\Scripts\Core\Traffic\Jobs\DriveJob.cs" />
     <Compile Include="Assets\GleyPlugins\TrafficSystem\Scripts\Core\Traffic\Enums\SpecialDriveActionTypes.cs" />
@@ -150,7 +151,6 @@
     <Compile Include="Assets\memo.cs" />
     <Compile Include="Assets\Car_interior\Shared\Scripts\CarControlKeyboard.cs" />
     <Compile Include="Assets\GleyPlugins\TrafficSystem\Scripts\Core\Traffic\Events\IntersectionEvents.cs" />
-    <Compile Include="Assets\todolist.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Logitech SDK\LogitechLcdEnginesWrapper.dll" />

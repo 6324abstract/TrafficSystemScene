@@ -157,8 +157,10 @@ namespace GleyTrafficSystem
        }
       private void OutputReactionTime()
         {
-            Debug.Log("end at " + System.DateTime.Now.ToString("ss.fff"));
+
             Debug.Log("reaction time:" + timeTillKeyisPressed + " hazard" + numOfHazard);
+            Debug.Log("start" + (System.DateTime.Now.AddSeconds(-timeTillKeyisPressed)).ToString("ss.fff"));
+
         }
     }
 }
