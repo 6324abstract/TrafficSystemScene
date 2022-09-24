@@ -10,6 +10,7 @@ namespace GleyTrafficSystem
         {
             idle,
             pedestrian_triggered,
+            pedtrain_to_vanish,
             vehicle_acce,
             vehicle_turn,
             vehicle_to_vanish
@@ -46,7 +47,10 @@ namespace GleyTrafficSystem
         private StateOfHazard[] states;
         VehicleLightsComponent lightsComponent;
 
-
+        //time after manuver
+        [SerializeField] private float afterManuver;
+        private float pedestrian_timer = 0f;
+        private float vehicle_timer = 0f;
         void Awake()
         {
             lightsComponent =carHazard.GetComponent<VehicleLightsComponent>();
@@ -70,6 +74,8 @@ namespace GleyTrafficSystem
             {
                 case (StateOfHazard.idle):
                     {
+                        pedestrian_timer = 0f;
+                        vehicle_timer = 0f;
                         StateOfHazard curState = states[numOfHazard];
                         if (curState == StateOfHazard.pedestrian_triggered)
                         {
@@ -103,16 +109,26 @@ namespace GleyTrafficSystem
                             timeTillKeyisPressed = 0;
                             isTiming = false;
                             isManeuvered = false;
+                           
+                            numOfHazard++;
+                            curstage = StateOfHazard.pedtrain_to_vanish;
+                        }
+                        break;
+                    }
+                case (StateOfHazard.pedtrain_to_vanish):
+                    {
+                        pedestrian.GetComponent<pedestriancontroller>().Wakling();
+                        pedestrian_timer += Time.deltaTime;
+                        if (pedestrian_timer > afterManuver)
+                        {
                             pedestrian.GetComponent<pedestriancontroller>().moveToNextPoint(++numofPedestrainHazard);
                             pedestrian.SetActive(false);
-                            numOfHazard++;
                             curstage = StateOfHazard.idle;
                         }
                         break;
                     }
                 case (StateOfHazard.vehicle_acce):
                     {
-                       
                         lightsComponent.SetBlinker(BlinkType.BlinkRight);
                         lightsComponent.UpdateLights();
                         InitialSpeed += Time.deltaTime * accel;
@@ -143,9 +159,14 @@ namespace GleyTrafficSystem
                     }
                 case (StateOfHazard.vehicle_to_vanish):
                     {
-                        Destroy(carHazard);
-                        curstage = StateOfHazard.idle;
-                        numOfHazard++;
+                        carHazard.transform.Translate(Vector3.forward * Time.deltaTime * InitialSpeed);
+                        vehicle_timer += Time.deltaTime;
+                        if (vehicle_timer > afterManuver){
+                            Destroy(carHazard);
+                            numOfHazard++;
+                            curstage = StateOfHazard.idle;
+                            
+                        }
                         break;
                     }
              }

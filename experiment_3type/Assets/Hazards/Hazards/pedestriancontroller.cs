@@ -5,7 +5,7 @@ using UnityEngine;
 public class pedestriancontroller : MonoBehaviour {
    
     [SerializeField] private Transform waypoints;
-
+   
 
     private static float speed;
 
@@ -29,13 +29,12 @@ public class pedestriancontroller : MonoBehaviour {
     }
 
     public void moveToNextPoint(int numofHazards)
-    {
+    {   
+        
         Transform nextPoint = waypoints.GetChild(numofHazards).transform;
         transform.position = new Vector3(nextPoint.position.x, transform.position.y, nextPoint.position.z);
         transform.rotation = nextPoint.rotation;
         this.GetComponent<Animator>().SetBool("istriggered", false);
-        
-      
     }
 
 }

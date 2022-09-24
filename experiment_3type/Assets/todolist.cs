@@ -7,7 +7,7 @@
 
 /*
  @ navigation instruction
- 
+ group switch lattin balance
 */
 
 /*
@@ -16,3 +16,14 @@
  * 
  * 
 */
+
+
+/*
+ * @ refactor
+ * vehicle control
+ */
+
+/*
+ * @ group manager
+ * identificaiton of control&exp group
+ */

@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("no such clip");
             return;
         }
+        
         s.source.Play();
     }
 }
